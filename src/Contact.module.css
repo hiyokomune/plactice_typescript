@@ -55,7 +55,7 @@ button {
 .clearButton {
   background-color: rgb(229, 231, 235);
 }
-p {
+.errMsg {
   min-height: 1.2em;
   color: red;
   font-size: .875rem;

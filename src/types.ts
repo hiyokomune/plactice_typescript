@@ -1,4 +1,4 @@
-export type PostType = {
+export type Post = {
   id: number;
   title: string;
   thumbnailUrl: string;

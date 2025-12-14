@@ -1,9 +1,9 @@
 import styles from './ForList.module.css';
 import { Link } from "react-router-dom";
-import type { PostType } from './types';
+import type { Post } from './types';
 
 type ForListProps = { // Propsの型を定義
-  src: PostType[];
+  src: Post[];
 }
 
 export default function ForList({ src }: ForListProps) {

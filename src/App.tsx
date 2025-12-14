@@ -1,17 +1,17 @@
-import './App.module.css';
 import { Routes, Route, Link } from "react-router-dom";
 import Header from './Header'
 import ForList from "./ForList"
-import Post from "./Post";
+import PostPage from "./Post";
 import Contact from "./Contact";
 import { useState, useEffect } from 'react';
+import type { Post } from './types';
 
 export default function App() {
 
   // 読み込み中判定用のstate
   const [loading, setLoading] = useState(true);
 
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState<Post[]>([])
   // APIでpostsを取得する処理をuseEffectで実行します。
   useEffect(() => {
     const fetcher = async () => {
@@ -30,7 +30,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<ForList src={posts} />} />
-        <Route path="/post/:id" element={<Post />} />
+        <Route path="/post/:id" element={<PostPage />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>

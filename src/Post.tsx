@@ -1,13 +1,14 @@
 import styles from'./Post.module.css';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import type { Post } from './types';
 
 export default function Post({}) {
 
   // /post/:id のidパラメータを取得
   const { id } = useParams();
   // 記事情報をAPIから取得
-  const [ post, setPost ] = useState(null);
+  const [ post, setPost ] = useState<Post | null>(null); // 取得前:null 取得後:Post
   const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {

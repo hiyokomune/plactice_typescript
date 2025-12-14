@@ -13,10 +13,12 @@ export default function Contact(){
   });
   
   // フォーム要素の変更内容をSateに反映
-  const handleForm = e => {
+  const handleForm = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> // inputとtextareaのイベント
+  ) => {
     setForm({
       ...form,
-      [e.target.name]: e.target.value
+      [e.currentTarget.name]: e.currentTarget.value // 型安全のためcurrentTargetを使用
     });
   };
   
@@ -40,7 +42,7 @@ export default function Contact(){
   };
 
   // バリデーション処理を行う関数を定義
-  const validation = () => {
+  const validation = (): boolean => {
     // setErrorsに渡すためのオブジェクトを作成
     const checkedErrors = {
       name: '',
@@ -108,22 +110,22 @@ export default function Contact(){
           <div className={styles.keyAndValue}>
             <label htmlFor={`${id}-name`}>お名前</label>
             <div className={styles.inputArea}>
-              <input id={`${id}-name`} name="name" type="text" maxLength="30" onChange={handleForm} value={form.name} disabled={isSubmitting} />
-              <p>{errors.name}</p> {/* エラーがある時にのみ表示 */}
+              <input id={`${id}-name`} name="name" type="text" maxLength={30} onChange={handleForm} value={form.name} disabled={isSubmitting} />
+              <p className={styles.errMsg}>{errors.name}</p> {/* エラーがある時にのみ表示 */}
             </div>
           </div>
           <div className={styles.keyAndValue}>
             <label htmlFor={`${id}-email`}>メールアドレス</label>
             <div className={styles.inputArea}>
               <input id={`${id}-email`} name="email" type="email" onChange={handleForm} value={form.email} disabled={isSubmitting} />
-              <p>{errors.email}</p> {/* エラーがある時にのみ表示 */}
+              <p className={styles.errMsg}>{errors.email}</p> {/* エラーがある時にのみ表示 */}
             </div>
           </div>
           <div className={styles.keyAndValue}>
             <label htmlFor={`${id}-message`}>本文</label>
             <div className={styles.inputArea}>
-              <textarea id={`${id}-message`} name="message" type="text" maxLength="500" onChange={handleForm} value={form.message} disabled={isSubmitting} />
-              <p>{errors.message}</p> {/* エラーがある時にのみ表示 */}
+              <textarea id={`${id}-message`} name="message" maxLength={500} onChange={handleForm} value={form.message} disabled={isSubmitting} />
+              <p className={styles.errMsg}>{errors.message}</p> {/* エラーがある時にのみ表示 */}
             </div>
           </div>
           <div className={styles.buttons}>

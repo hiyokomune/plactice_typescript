@@ -1,7 +1,12 @@
 import styles from './ForList.module.css';
 import { Link } from "react-router-dom";
+import type { Post } from './types';
 
-export default function ForList({ src }) {
+type ForListProps = { // Propsの型を定義
+  src: Post[];
+}
+
+export default function ForList({ src }: ForListProps) {
   return (
     <ul className={styles.posts}>
       {src.map((elem) => {

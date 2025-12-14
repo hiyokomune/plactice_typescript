@@ -1,0 +1,42 @@
+.post {
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+
+.thumbnail {
+  height: auto;
+  width: 100%;
+}
+
+.postContainer {
+  padding: 1rem;
+}
+
+.postInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postCreatedAt{
+  display: inline-block;
+  color: #666;
+  font-size: .8rem;
+}
+
+.postCategory{
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #58c;
+  color: #58c;
+  border-radius: 5%;
+  padding: 3px;
+  font-size: 12px;
+  margin: 3px;
+  text-align: right;
+}
+.postTitle{
+  font-size: 1.5rem;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+}

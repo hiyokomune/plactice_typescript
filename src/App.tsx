@@ -1,26 +1,38 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import './App.module.css';
+import { Routes, Route, Link } from "react-router-dom";
+import Header from './Header'
+import ForList from "./ForList"
+import Post from "./Post";
+import Contact from "./Contact";
+import { useState, useEffect } from 'react';
 
-function App() {
+export default function App() {
+
+  // 読み込み中判定用のstate
+  const [loading, setLoading] = useState(true);
+
+  const [posts, setPosts] = useState([])
+  // APIでpostsを取得する処理をuseEffectで実行します。
+  useEffect(() => {
+    const fetcher = async () => {
+      const res = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts")
+      const data = await res.json()
+      setPosts(data.posts)
+      setLoading(false);  // 読み込み終了
+    }
+    fetcher()
+  }, [])
+
+  if (loading) return <div>読み込み中...</div>;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/" element={<ForList src={posts} />} />
+        <Route path="/post/:id" element={<Post />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </div>
   );
 }
-
-export default App;

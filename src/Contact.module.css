@@ -1,0 +1,63 @@
+.wrapper {
+  margin: 40px auto;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+h1 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+.keyAndValue {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+label {
+  width: 240px;
+}
+.inputArea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+input, textarea{
+  width: 100%;
+  padding: 1rem;
+  border: 0 solid #e5e7eb;
+  border-width: 1px;
+  border-radius: .25rem;
+  box-sizing: border-box;
+}
+textarea {
+  resize: vertical;
+  height: 200px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+button {
+  font-weight: 700;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  border: 0 solid;
+  border-radius: .5rem;
+}
+.submitButton{
+  color: white;
+  background-color: rgb(31, 41, 55);
+  margin-right: 1rem;
+}
+.clearButton {
+  background-color: rgb(229, 231, 235);
+}
+p {
+  min-height: 1.2em;
+  color: red;
+  font-size: .875rem;
+  line-height: 1.25rem;
+}

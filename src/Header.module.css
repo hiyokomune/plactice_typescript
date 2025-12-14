@@ -1,0 +1,13 @@
+.header {
+    align-items: center;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+  }
+  .headerLink {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
